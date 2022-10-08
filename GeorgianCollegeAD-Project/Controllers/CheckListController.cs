@@ -8,5 +8,16 @@ namespace GeorgianCollegeAD_Project.Controllers
         {
             return View();
         }
+
+        public IActionResult Category(String Name)
+        {
+            if(Name == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            ViewData["Category"] = Name;
+            return View();
+        }
     }
 }
