@@ -17,7 +17,21 @@ html {
 
 body {
     margin-bottom: 60px;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif; 
+}
+
+.navigation {
+    height:15vh;
+    width:100%;  
+}
+
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%; 
 }
 
 table.sortable th:hover {
@@ -72,6 +86,7 @@ img {
 .navbar-brand {
     color: #000000;
     font-weight:bolder ;
+    font-size:25px;
 }
 
 
