@@ -149,7 +149,7 @@ namespace GeorgianCollegeAD_Project.Controllers
         {
             if (_context.Tasks == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Tasks'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Tasks'  is null. ");
             }
             var task = await _context.Tasks.FindAsync(id);
             if (task != null)
