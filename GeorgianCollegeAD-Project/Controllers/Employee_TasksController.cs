@@ -22,7 +22,7 @@ namespace GeorgianCollegeAD_Project.Controllers
         // GET: Employee_Tasks
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Employee_Tasks.Include(e => e.Employee).Include(e => e.Task);
+            var applicationDbContext = _context.Employee_Tasks.OrderBy(e => e.TaskId).Include(e => e.Employee).Include(e => e.Task);
             return View(await applicationDbContext.ToListAsync());
         }
 

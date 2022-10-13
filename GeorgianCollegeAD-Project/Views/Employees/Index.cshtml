@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<GeorgianCollegeAD_Project.Models.Employee>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Employees";
 }
 
-<h1>Index</h1>
+<h1>Employees</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-secondary">Create New</a>
 </p>
-<table class="table">
+<table class="table sortable">
     <thead>
         <tr>
             <th>
@@ -30,7 +30,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.HireDate)
             </th>
-            <th></th>
+            <th class="sorttable_nosort">Actions</th>
         </tr>
     </thead>
     <tbody>

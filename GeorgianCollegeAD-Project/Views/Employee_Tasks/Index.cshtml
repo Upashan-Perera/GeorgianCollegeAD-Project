@@ -7,9 +7,9 @@
 <h1>Supervisor Shift Checklist</h1>
 
 <p>
-    <a asp-action="Create">Add a new Employee task</a>
+    <a asp-action="Create" class="btn btn-secondary">Add a new Employee task</a>
 </p>
-<table class="table">
+<table class="table sortable">
     <thead>
         <tr>
             <th>
@@ -24,7 +24,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Task)
             </th>
-            <th></th>
+            <th class="sorttable_nosort">Actions</th>
         </tr>
     </thead>
     <tbody>
