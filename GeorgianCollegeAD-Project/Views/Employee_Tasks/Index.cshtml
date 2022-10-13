@@ -1,0 +1,53 @@
+﻿@model IEnumerable<GeorgianCollegeAD_Project.Models.Employee_Task>
+
+@{
+    ViewData["Title"] = "Supervisor Shift Checklist";
+}
+
+<h1>Supervisor Shift Checklist</h1>
+
+<p>
+    <a asp-action="Create">Add a new Employee task</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCompleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Task.TaskName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Employee_TaskId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Employee_TaskId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Employee_TaskId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -8,8 +8,10 @@ namespace GeorgianCollegeAD_Project.Models
 
         [Required]
         [MaxLength(255)]
+        [Display(Name = "Type Name")]
         public string? TaskTypeName { get; set; }
 
+        [Display(Name = "Description")]
         public string? TaskTypeDescription { get; set; }
 
         public List<Task>? Tasks { get; set; }
