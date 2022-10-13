@@ -8,13 +8,16 @@ html {
   }
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 table.sortable th:hover {
@@ -24,3 +27,31 @@ table.sortable th:hover {
 .sorttable_nosort:hover{
     cursor: default !important;
 }
+
+.navbar-dark {
+    background-color: #1976D2;
+}
+
+.btn-primary {
+    background-color: #757575;
+}
+
+    .btn-primary:hover {
+        background-color: #536DFE;
+    }
+
+a {
+    color: #536DFE;
+}
+
+
+a:hover{
+    color: #BBDEFB;
+}
+
+img {
+    width:60px;
+    height:60px;
+    padding:5px;
+}
+
