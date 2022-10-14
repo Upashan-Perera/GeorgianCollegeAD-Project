@@ -1,6 +1,31 @@
-﻿@{
+﻿@model IEnumerable<GeorgianCollegeAD_Project.Models.Employee_Task>
+
+@{
     ViewData["Title"] = "Check Lists by Category";
 }
 
 
 <h1>Supervisor Shift Check List for @ViewData["Category"]</h1>
+
+<table class="table sortable table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCompleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task)
+            </th>
+            <th class="sorttable_nosort">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
