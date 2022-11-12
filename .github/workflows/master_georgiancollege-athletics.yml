@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'GeorgianCollege-Athletics'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2A42E1CA87DD4B6BA99C1C4900EB557E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_234E614CDDDB41F9B0D587D001CA6FCE }}
           package: .
