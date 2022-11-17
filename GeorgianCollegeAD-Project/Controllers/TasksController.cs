@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using GeorgianCollegeAD_Project.Data;
 using GeorgianCollegeAD_Project.Models;
 using Task = GeorgianCollegeAD_Project.Models.Task;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GeorgianCollegeAD_Project.Controllers
 {
+    [Authorize]
     public class TasksController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GeorgianCollegeAD_Project.Data;
 using GeorgianCollegeAD_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GeorgianCollegeAD_Project.Controllers
 {
+    [Authorize]
     public class Employee_TasksController : Controller
     {
         private readonly ApplicationDbContext _context;
