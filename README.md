@@ -19,4 +19,4 @@ Here we manage data like employee specific data, different task and completion s
 
 This site suns on ASP.NET Core 6 and SQL Server with also the help of Azure tools
 
-Live site at https://georgiancollege-ad.azurewebsites.net/
+Live site at https://georgincollege-athletics.azurewebsites.net/
