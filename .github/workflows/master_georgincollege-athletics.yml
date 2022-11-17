@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'GeorginCollege-Athletics'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0108BBB9FF824B559F03527D7DEA68B7 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0A7763EF09BF4045A38CE4DB4C37281C }}
           package: .
