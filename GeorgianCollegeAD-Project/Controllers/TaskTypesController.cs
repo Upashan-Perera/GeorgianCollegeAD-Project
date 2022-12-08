@@ -24,7 +24,7 @@ namespace GeorgianCollegeAD_Project.Controllers
         // GET: TaskTypes
         public async Task<IActionResult> Index()
         {
-              return View(await _context.TaskTypes.ToListAsync());
+              return View("Index",await _context.TaskTypes.ToListAsync());
         }
 
         // GET: TaskTypes/Details/5
