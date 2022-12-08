@@ -1,6 +1,7 @@
 ﻿
 using GeorgianCollegeAD_Project.Controllers;
 using GeorgianCollegeAD_Project.Data;
+using GeorgianCollegeAD_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -28,14 +29,25 @@ namespace GeorgianCollegeAD_ProjectTests
             _context = new ApplicationDbContext(options); ;
 
             //creating mockdata in the in-memory db unit test the TaskTypesController methods in the web app
+
+            for (int i = 0; i <= 5; i++)
+            {
+                var taskType = new TaskType
+                { 
+                    TaskTypeName = "Task " + i.ToString(),
+                    TaskTypeDescription = ""
+
+                };
+
+                _context.Add(taskType);
+            }
  
+            _context.SaveChanges();
         }
 
         [TestMethod]
         public void IndexLoadsIndexView()
         {
-
-
             //arrang
             var controller = new TaskTypesController(_context);
 
@@ -44,6 +56,20 @@ namespace GeorgianCollegeAD_ProjectTests
 
             //assert
             Assert.AreEqual("Index", result.ViewName);
+        }
+
+        [TestMethod]
+        public void IndexLoadsTaskTypes()
+        {
+            //arrang
+            var controller = new TaskTypesController(_context);
+
+            //act
+            var result = (ViewResult)controller.Index().Result;
+            List<TaskType> model = (List<TaskType>)result.Model; //convert data to a list of tasktypes for compariosn
+
+            //assert
+            CollectionAssert.AreEqual(_context.TaskTypes.ToList(),model);
         }
 
          
