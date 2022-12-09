@@ -32,23 +32,23 @@ namespace GeorgianCollegeAD_Project.Controllers
         {
             if (id == null || _context.TaskTypes == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             var taskType = await _context.TaskTypes
                 .FirstOrDefaultAsync(m => m.TaskTypeId == id);
             if (taskType == null)
             {
-                return NotFound();
+                return View("404");
             }
 
-            return View(taskType);
+            return View("Details",taskType);
         }
 
         // GET: TaskTypes/Create
         public IActionResult Create()
         {
-            return View();
+            return View("Create");
         }
 
         // POST: TaskTypes/Create
@@ -72,15 +72,15 @@ namespace GeorgianCollegeAD_Project.Controllers
         {
             if (id == null || _context.TaskTypes == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             var taskType = await _context.TaskTypes.FindAsync(id);
             if (taskType == null)
             {
-                return NotFound();
+                return View("404");
             }
-            return View(taskType);
+            return View("Edit",taskType);
         }
 
         // POST: TaskTypes/Edit/5
@@ -92,7 +92,7 @@ namespace GeorgianCollegeAD_Project.Controllers
         {
             if (id != taskType.TaskTypeId)
             {
-                return NotFound();
+                return View("404");
             }
 
             if (ModelState.IsValid)

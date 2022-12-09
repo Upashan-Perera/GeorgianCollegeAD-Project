@@ -16,6 +16,7 @@ namespace GeorgianCollegeAD_ProjectTests
     public class TaskTypesControllerTests
     {
         private ApplicationDbContext _context;
+        private TaskTypesController controller;
 
         //special startup method that runs before unit tests avoiding repetition
         [TestInitialize]
@@ -43,13 +44,16 @@ namespace GeorgianCollegeAD_ProjectTests
             }
  
             _context.SaveChanges();
+
+            //arrang
+            controller = new TaskTypesController(_context);
         }
 
         [TestMethod]
         public void IndexLoadsIndexView()
         {
             //arrang
-            var controller = new TaskTypesController(_context);
+            //var controller = new TaskTypesController(_context);
 
             //act
             var result = (ViewResult)controller.Index().Result;
@@ -62,7 +66,7 @@ namespace GeorgianCollegeAD_ProjectTests
         public void IndexLoadsTaskTypes()
         {
             //arrang
-            var controller = new TaskTypesController(_context);
+            //var controller = new TaskTypesController(_context);
 
             //act
             var result = (ViewResult)controller.Index().Result;
@@ -72,6 +76,135 @@ namespace GeorgianCollegeAD_ProjectTests
             CollectionAssert.AreEqual(_context.TaskTypes.ToList(),model);
         }
 
-         
+        [TestMethod]
+        public void DetailsNoIdLoads404()
+        {
+            //arrang
+            //var controller = new TaskTypesController(_context);
+
+            //act - calls details without ids
+            var result = (ViewResult)controller.Details(null).Result;
+
+            //assert
+            Assert.AreEqual("404", result.ViewName);
+        }
+
+        [TestMethod]
+        public void DetailsNoTaskTypesLoads404()
+        {
+            //arrang
+            _context.TaskTypes = null;
+
+            //act - pass in an id
+            var result = (ViewResult)controller.Details(1).Result;
+
+            //assert
+            Assert.AreEqual("404", result.ViewName);
+        }
+
+        [TestMethod]
+        public void DetailsInvalidIdLoads404()
+        { 
+
+            //act - pass in an id
+            var result = (ViewResult)controller.Details(10).Result;
+
+            //assert
+            Assert.AreEqual("404", result.ViewName);
+        }
+
+        [TestMethod]
+        public void DetailsValidIdLoadsTaskTypes()
+        {
+
+            //act - pass in an id
+            var result = (ViewResult)controller.Details(2).Result;
+            var model = (TaskType)result.Model;
+            //assert
+            Assert.AreEqual(_context.TaskTypes.Find(2), model);
+        }
+
+        [TestMethod]
+        public void DetailsValidIdLoadsDetailsView()
+        {
+
+            //act - pass in an id
+            var result = (ViewResult)controller.Details(2).Result; 
+            //assert
+            Assert.AreEqual("Details",result.ViewName);
+        }
+
+        [TestMethod]
+        public void CreateLoadsCreateView()
+        {
+            //arrang
+            //var controller = new TaskTypesController(_context);
+
+            //act
+            var result = (ViewResult)controller.Create();
+
+            //assert
+            Assert.AreEqual("Create", result.ViewName);
+        }
+
+        [TestMethod]
+        public void EditNoIdLoads404()
+        {
+            //arrang
+            //var controller = new TaskTypesController(_context);
+
+            //act - calls details without ids
+            var result = (ViewResult)controller.Edit(null).Result;
+
+            //assert
+            Assert.AreEqual("404", result.ViewName);
+        }
+
+        [TestMethod]
+        public void EditNoTaskTypesLoads404()
+        {
+            //arrang
+            _context.TaskTypes = null;
+
+            //act - pass in an id
+            var result = (ViewResult)controller.Edit(1).Result;
+
+            //assert
+            Assert.AreEqual("404", result.ViewName);
+        }
+
+        [TestMethod]
+        public void EditInvalidIdLoads404()
+        {
+
+            //act - pass in an id
+            var result = (ViewResult)controller.Edit(10).Result;
+
+            //assert
+            Assert.AreEqual("404", result.ViewName);
+        }
+
+        [TestMethod]
+        public void EditsValidIdLoadsTaskTypes()
+        {
+
+            //act - pass in an id
+            var result = (ViewResult)controller.Edit(2).Result;
+            var model = (TaskType)result.Model;
+            //assert
+            Assert.AreEqual(_context.TaskTypes.Find(2), model);
+        }
+
+        [TestMethod]
+        public void EditValidIdLoadsDetailsView()
+        {
+
+            //act - pass in an id
+            var result = (ViewResult)controller.Edit(2).Result;
+            //assert
+            Assert.AreEqual("Edit", result.ViewName);
+        }
+
+
     }
 }
