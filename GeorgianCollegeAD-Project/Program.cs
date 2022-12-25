@@ -11,6 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
@@ -20,6 +21,12 @@ builder.Services.AddAuthentication()
     {
         options.ClientId = configuration["Authentication:Google:ClientId"];
         options.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+    })
+
+    .AddMicrosoftAccount(options =>
+    {
+        options.ClientId = configuration["Authentication:Microsoft:ClientId"];
+        options.ClientSecret = configuration["Authentication:Microsoft:SecretId"];
     });
 
 var app = builder.Build();
